@@ -4,19 +4,8 @@
       "id": "I1PB",
       "nome": "Técnico em desenvolvimento de sistemas",
       "qtdAlunos": 32,
-      "horarios": {
-        "quinta-feira": [
-          {
-            "periodo": "manhã",
-            "inicio": "13:45",
-            "fim": "16:45",
-            "qtdAulas": "4",
-            "disciplina": "LER",
-            "professor": "Bruno",
-            "local": "new-lab-sala-7-2025"
-          }
-        ]
-      }
+      "horarioAlmoco": "11:30",
+      "horarios": {}
     }
   ],
   "salas": [
@@ -312,28 +301,7 @@
       "id": "lab-1-piso-b-2025",
       "nome": "LABORATÓRIO 1 - PISO SUPERIOR B 2025",
       "horarios": {
-        "segunda-feira": [
-          {
-            "inicio": "8:15",
-            "fim": "9:00",
-            "turma": "I1PB"
-          },
-          {
-            "inicio": "9:00",
-            "fim": "9:45",
-            "turma": "I1PB"
-          },
-          {
-            "inicio": "9:45",
-            "fim": "10:30",
-            "turma": "I1PB"
-          },
-          {
-            "inicio": "10:30",
-            "fim": "11:15",
-            "turma": "I1PB"
-          }
-        ],
+        "segunda-feira": [],
         "terça-feira": [],
         "quarta-feira": [],
         "quinta-feira": [],
@@ -345,28 +313,7 @@
       "id": "lab-programacao-1-2025",
       "nome": "LABORATÓRIO PROGRAMAÇÃO 1 2025",
       "horarios": {
-        "segunda-feira": [
-          {
-            "inicio": "13:45",
-            "fim": "14:30",
-            "turma": "I1PB"
-          },
-          {
-            "inicio": "14:30",
-            "fim": "15:15",
-            "turma": "I1PB"
-          },
-          {
-            "inicio": "15:15",
-            "fim": "16:00",
-            "turma": "I1PB"
-          },
-          {
-            "inicio": "16:00",
-            "fim": "16:45",
-            "turma": "I1PB"
-          }
-        ],
+        "segunda-feira": [],
         "terça-feira": [],
         "quarta-feira": [],
         "quinta-feira": [],
@@ -381,28 +328,7 @@
         "segunda-feira": [],
         "terça-feira": [],
         "quarta-feira": [],
-        "quinta-feira": [
-          {
-            "inicio": "8:15",
-            "fim": "9:00",
-            "turma": "I1PB"
-          },
-          {
-            "inicio": "9:00",
-            "fim": "9:45",
-            "turma": "I1PB"
-          },
-          {
-            "inicio": "9:45",
-            "fim": "10:30",
-            "turma": "I1PB"
-          },
-          {
-            "inicio": "10:30",
-            "fim": "11:15",
-            "turma": "I1PB"
-          }
-        ],
+        "quinta-feira": [],
         "sexta-feira": [],
         "sábado": []
       }
@@ -426,28 +352,7 @@
         "segunda-feira": [],
         "terça-feira": [],
         "quarta-feira": [],
-        "quinta-feira": [
-          {
-            "inicio": "13:45",
-            "fim": "14:30",
-            "turma": "I1PB"
-          },
-          {
-            "inicio": "14:30",
-            "fim": "15:15",
-            "turma": "I1PB"
-          },
-          {
-            "inicio": "15:15",
-            "fim": "16:00",
-            "turma": "I1PB"
-          },
-          {
-            "inicio": "16:00",
-            "fim": "16:45",
-            "turma": "I1PB"
-          }
-        ],
+        "quinta-feira": [],
         "sexta-feira": [],
         "sábado": []
       }

@@ -25,14 +25,38 @@
 
         <br><br>
 
+        <label>Horário almoço</label>
+        <select name="horarioAlmoco" class="select-horario"></select>
+        
+        <br><br>
         <button>Enviar</button>
+    </form>
+    <hr>
+    <form>
+        <h2>Editar turma</h2>
+
+        <label for="id">Turma:</label>
+        <select required name="id" class="select-turma"></select>
+        <br><br>
+        
+        <label>Nome da turma:</label>
+        <input type="text" name="">
+
+    </form>
+    <hr>
+    <form id="form-turma-delete">
+        <h2>Excluir turma</h2>
+        <label for="id">Turma:</label>
+        <select required name="id" class="select-turma"></select>
+        <br><br>
+        <button>Enviar</button>    
     </form>
     <hr>
 
     <h2>Adicionar Horários</h2>
     <form id="form-horarios-post">
-        <label for="id">Id Turma:</label>
-        <input type="text" id="id" name="id" required>
+        <label for="id">Turma:</label>
+        <select required name="id" class="select-turma"></select>
 
         <br><br>
 
@@ -54,7 +78,8 @@
         <br><br>
 
         <label for="qtd">Horário Inicio</label>
-        <input type="text" id="qtd" name="inicio" placeholder="7:30" required>
+        <select name="inicio" class="select-horario"></select>
+
 
         <br><br>
 
@@ -81,8 +106,9 @@
     <hr>
     <h2>Excluir um Horário</h2>
     <form id="form-horarios-excluir">
-        <label for="id">ID - turma:</label>
-        <input type="text" id="id" name="id" required>
+        <label for="id">Turma:</label>
+        <select required name="id" class="select-turma"></select>
+
 
         <br><br>
 
@@ -98,41 +124,13 @@
 
         <br><br>
 
-        <label for="inicio">Horario Inicio:</label>
-        <input type="text" id="inicio" name="inicio" placeholder="7:30">
-
+        <label for="qtd">Horário Inicio</label>
+        <select name="inicio" class="select-horario"></select>
         <br><br>
 
         <button>Enviar</button>
     </form>
     <hr>
-    <h2>Editar um horário</h2>
-    <form id="form-horarios-buscar">
-        <label for="id">ID - turma:</label>
-        <input type="text" id="id" name="id" required>
-
-        <br><br>
-
-        <label for="nome">Dia:</label>
-        <select name="dia" id="">
-            <option value="segunda-feira">Segunda-feira</option>
-            <option value="terça-feira">Terça-feira</option>
-            <option value="quarta-feira">Quarta-feira</option>
-            <option value="quinta-feira">Quinta-feira</option>
-            <option value="sexta-feira">Sexta-feira</option>
-            <option value="sábado">Sábado</option>
-        </select>
-
-        <br><br>
-
-        <label for="inicio">Horario Inicio:</label>
-        <input type="text" id="inicio" name="inicio" placeholder="7:30">
-
-        <br><br>
-
-        <button>Buscar</button>
-
-    </form>
 
     <script type="module" src="../scripts/painelAdministracao.js"></script>
 </body>

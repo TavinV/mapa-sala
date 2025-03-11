@@ -74,4 +74,5 @@ async function criarTabela(idTurma) {
     document.body.appendChild(table);
 }
 
+
 criarTabela("I1PB");
