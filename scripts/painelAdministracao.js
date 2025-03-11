@@ -98,7 +98,7 @@ const selectSala = document.getElementById('select-sala');
 
 // Criando uma turma
 const formCriar = document.getElementById('form-turma-post');
-formCriar.addEventListener('submit', (e) => {
+formCriar.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const formData = new FormData(formCriar);
@@ -107,17 +107,20 @@ formCriar.addEventListener('submit', (e) => {
     const qtd = parseInt(formData.get("qtd").trim());
     const horarioAlmoco = formData.get("horarioAlmoco")
     // Criando a turma
-    Turma.criarTurma(id, nome, qtd, horarioAlmoco);
+    
+    const [criado, resposta] = await Turma.criarTurma(id, nome, qtd, horarioAlmoco);
+    alert(resposta)
 });
 
 //Apagar Turma
 
 const formExcluirTurma = document.getElementById("form-turma-delete")
 
-formExcluirTurma.addEventListener("submit", (e) =>{
+formExcluirTurma.addEventListener("submit", async (e) =>{
     e.preventDefault()
-    const formData = new FormData(formExcluir);
-    Turma.deletarTurma(formData.get("id"))
+    const formData = new FormData(formExcluirTurma);
+    const [deletado, resposta] = await Turma.deletarTurma(formData.get("id"))
+    alert(resposta)
 })
 
 
@@ -151,4 +154,32 @@ formExcluir.addEventListener('submit', async (e) => {
     
     const [excluido, resposta] = await Turma.excluirHorario(turmaId, dia, inicio)
     alert(resposta)
+})
+
+// Editar turma
+
+const formEditar = document.getElementById("form-turma-update")
+const selectturmaEditar = document.getElementById("editar_selectTurma")
+
+selectturmaEditar.addEventListener("change", async (eventSelect)=>{
+    const idTurmaEditar = eventSelect.target.value;
+    const turma = await Turma.getTurma(idTurmaEditar)
+
+    const inputNome = document.getElementById('editar_nome')
+    const inputQtdAlunos = document.getElementById('editar_qtdAlunos')
+    const selectHorarioAlmoco = document.querySelector('select[name="editar_horarioAlmoco"]');
+
+    inputNome.value = turma.nome;
+    inputQtdAlunos.value = turma.qtdAlunos;
+    selectHorarioAlmoco.value = turma.horarioAlmoco; // Atribuindo diretamente o valor
+
+
+    formEditar.addEventListener("submit", async (e)=>{
+        turma.nome = inputNome.value.trim()
+        turma.qtdAlunos = parseInt(inputQtdAlunos.value)
+        turma.horarioAlmoco = selectHorarioAlmoco.value
+        const [atualizado, resposta] = await Turma.atualizarTurma(idTurmaEditar, turma)
+        alert(resposta)
+    })
+
 })

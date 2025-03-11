@@ -6,6 +6,13 @@
       "qtdAlunos": 32,
       "horarioAlmoco": "11:30",
       "horarios": {}
+    },
+    {
+      "id": "1FBC",
+      "nome": "Técnico em fabricação mecânica",
+      "qtdAlunos": 32,
+      "horarioAlmoco": "13:00",
+      "horarios": {}
     }
   ],
   "salas": [

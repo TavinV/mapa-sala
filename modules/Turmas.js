@@ -59,16 +59,13 @@ class Sala {
     }
 
     static async adicionarHorario(idSala, dia, inicio, qtdAulas, idTurma) {
-        console.log("horarios na sala")
         const sala = await this.getSala(idSala);
-        console.log(qtdAulas)
         if (!sala) return;
 
         if (!sala.horarios[dia]) sala.horarios[dia] = [];
 
         let [hora, minuto] = inicio.split(':').map(Number);
         for (let i = 0; i < qtdAulas; i++) {
-            console.log("adicionando aula " + i)
 
             let fimMinuto = minuto + 45;
             let fimHora = hora + Math.floor(fimMinuto / 60);
@@ -83,11 +80,8 @@ class Sala {
             hora = fimHora;
             minuto = fimMinuto;
 
-            console.log(sala.horarios[dia])
         }
 
-        console.log(sala.horarios[dia] )
-        console.log("adicionar horario Sala")
         await this.atualizarSala(idSala, sala);
     }
 
@@ -179,13 +173,16 @@ class Turma {
 
     static async deletarTurma(id) {
         try {
-            const turma = Turma.getTurma(id)
+            const turma = await Turma.getTurma(id)
+            const horarios = turma.horarios
             
-            turma.horarios.forEach(async h =>{
-                await Sala.excluirHorario(h.local, h.dia, id);
-            })
-
+            if (JSON.stringify(horarios) !== '{}') { 
+                horarios.forEach(async h =>{
+                    await Sala.excluirHorario(h.local, h.dia, id);
+                })
+            }
             await fetch(`${TURMAS_URL}/${id}`, { method: "DELETE", })
+            return [true, `Turma ${id} deletada`]
         } catch (error) {
             console.error("Erro ao apagar turma:", error);
 
@@ -230,8 +227,8 @@ class Turma {
         });
 
         if (conflitoSala) {
-            console.error(`Sala ${local} já está ocupada nesse período.`);
-            return [false, `Sala ${local} já está ocupada nesse período.`];
+            console.error(`Sala ${sala.nome}} já está ocupada nesse período.`);
+            return [false, `Sala ${sala.nome} já está ocupada nesse período.`];
         }
 
         // Cria o novo horário
@@ -263,7 +260,6 @@ class Turma {
 
     static async excluirHorario(idTurma, dia, inicio) {
         const turma = await this.getTurma(idTurma);
-        console.log(turma.horarios)
         if (!turma || !turma.horarios[dia]) return [false, `Turma ${idTurma} não encontrada`];
         
         const horarioExcluir = turma.horarios[dia].find(h => h.inicio == inicio);
@@ -276,6 +272,8 @@ class Turma {
         
         await this.atualizarTurma(idTurma, turma);
         await Sala.excluirHorario(salaDesocupar, dia, idTurma);
+
+        return [true, `Horário da turma ${idTurma} de ${dia} ${inicio} foi excluido, e a sala ${salaDesocupar} desocupada.`]
     }
 
 

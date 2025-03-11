@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Painel de administrador</title>
+    <link rel="stylesheet" href="admin.css">
 </head>
 
 <body>
@@ -32,16 +33,26 @@
         <button>Enviar</button>
     </form>
     <hr>
-    <form>
+    <form id="form-turma-update">
         <h2>Editar turma</h2>
 
         <label for="id">Turma:</label>
-        <select required name="id" class="select-turma"></select>
+        <select required id="editar_selectTurma" name="id" class="select-turma"></select>
         <br><br>
         
         <label>Nome da turma:</label>
-        <input type="text" name="">
+        <input type="text" id="editar_nome">
+        <br><br>
 
+        <label>Qtd Alunos</label>
+        <input type="text" id="editar_qtdAlunos">
+        <br><br>
+
+        <label>Horário de almoço:</label>
+        <select name="editar_horarioAlmoco" class="select-horario"></select>
+        <br><br>
+
+        <button>Enviar</button>
     </form>
     <hr>
     <form id="form-turma-delete">
